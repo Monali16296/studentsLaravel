@@ -11,6 +11,7 @@
 |
 */
 
+/**My first project**/
 Route::get('/', function () {
     return view('welcome');
 });
