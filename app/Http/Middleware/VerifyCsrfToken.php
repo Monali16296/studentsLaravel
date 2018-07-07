@@ -13,5 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'http://localhost/studentsLaravel/public/newStudentForm' //After submitting form this url will be called so I removed csrf token and added this url in exception
     ];
 }

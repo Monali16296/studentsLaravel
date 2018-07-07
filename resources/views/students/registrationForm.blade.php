@@ -11,7 +11,9 @@
     <form method="post" action="{{route('insert')}}">
         <div class="form-group">
             
-            <input type="hidden" value="{{csrf_token()}}" name="_token"/>
+            <!--After form submission i don't want token getting matched so I added exception in
+            verifycsrftoken-->
+<!--            <input type="hidden" value="{{csrf_token()}}" name="_token"/>-->
             {{ Form::label("Random Id:", null, ['class' => 'control-label']) }}
             {{ Form::number("randomId", $randomId, ['class' => 'form-control', 'readonly']) }}
 <!--            <label for="randomId">Random Id:</label>
