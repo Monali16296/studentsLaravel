@@ -11,7 +11,7 @@
 |
 */
 
-/**My first project**/
+/**My first projec**/
 Route::get('/', function () {
     return view('welcome');
 });
