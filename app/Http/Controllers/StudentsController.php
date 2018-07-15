@@ -16,13 +16,11 @@ class StudentsController extends Controller {
     public function duplicateRandomNumber() {
         $number = rand(10000, 99999);
 
-        $a = Student::where('randomId', $number);
+        $checkExistingRandomId = Student::where('randomId', $number)->first();
 
-//        if($a) {
-//            
-//            $this->duplicateRandomNumber();
-//        }
-//        echo 'a';exit;
+        if($checkExistingRandomId) {            
+            $this->duplicateRandomNumber();
+        }        
         return $number;
     }
 
