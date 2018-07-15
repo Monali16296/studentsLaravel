@@ -25,6 +25,22 @@ class StudentsController extends Controller {
     }
 
     public function store(Request $request) {
+        //For accessing request as array
+//        echo '<pre>';
+//        print_r($request->all());exit;
+
+        //For getting method of request
+//        echo '<pre>';
+//        print_r($request->method());exit;
+
+        //For getting url without query string
+//        echo '<pre>';
+//        print_r($request->url());exit;
+
+        //For getting fullurl with query string
+//        echo '<pre>';
+//        print_r($request->fullUrl());exit;
+
        $this->validate($request, [
             'firstName' => 'required',
             'lastName' => 'required',
