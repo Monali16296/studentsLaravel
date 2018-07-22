@@ -41,6 +41,12 @@ class StudentsController extends Controller {
 //        echo '<pre>';
 //        print_r($request->fullUrl());exit;
 
+        //For redirecting to a domain outside of your application.
+//return redirect()->away('https://www.google.com/');
+        
+        //For downloading file
+//       return response()->download('C:\Users\Admin\Desktop\images.jpg');
+        
        $this->validate($request, [
             'firstName' => 'required',
             'lastName' => 'required',
