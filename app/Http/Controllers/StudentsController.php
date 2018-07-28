@@ -47,10 +47,25 @@ class StudentsController extends Controller {
         //For downloading file
 //       return response()->download('C:\Users\Admin\Desktop\images.jpg');
         
+        //For displaying a file, such as an image or PDF, directly in the user's browser instead of initiating a download. 
+//       return response()->file('C:\Users\Admin\Desktop\images.jpg');
+        
        $this->validate($request, [
+           
+           /*If we want null value as valid value then use nullabble.
+            * Here firstname can be null or numeric value nothing else.
+           */
+            //'firstName' => 'nullable|numeric', 
+           
             'firstName' => 'required',
             'lastName' => 'required',
             'address' => 'required',
+           
+           /*
+            *date must be after tomorrow 
+            */
+            //'dob' => 'required|after:tomorrow',
+           
             'dob' => 'required',
             'img' => 'required'
         ]);
@@ -69,7 +84,8 @@ class StudentsController extends Controller {
     public function edit($id) {
         
         $data = Student::where('randomId', $id)->get()->first();
-        
+        echo '<pre>';
+        print_r($data);exit;
         return view('students.editForm', compact('data'));
     }
     
