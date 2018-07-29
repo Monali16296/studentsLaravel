@@ -84,8 +84,6 @@ class StudentsController extends Controller {
     public function edit($id) {
         
         $data = Student::where('randomId', $id)->get()->first();
-        echo '<pre>';
-        print_r($data);exit;
         return view('students.editForm', compact('data'));
     }
     

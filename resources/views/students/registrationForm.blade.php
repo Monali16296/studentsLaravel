@@ -1,4 +1,11 @@
+{{--For executing only php--}}
+{{--@php
+echo '1';exit;
+@endphp--}}
+
 @extends('layouts.app')
+
+@section('title', 'Registration')
 
 @section('content')
 <div class="row">

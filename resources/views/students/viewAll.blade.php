@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'All Students')
+
 @section('content')
 <div class="row">
     @if(isset($updatemsg))
