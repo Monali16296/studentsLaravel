@@ -77,6 +77,27 @@ class StudentsController extends Controller {
     }
 
     public function view() {
+        /*
+         * For counting records of database
+         */
+//        $data = Student::get()->count();
+//        echo '<pre>';
+//        print_r($data);
+        
+        /*
+         * For finding max value of particular column of db
+         */
+//        $data = Student::get()->max('randomId');
+//        echo '<pre>';
+//        print_r($data);
+        
+        /*
+         * For summation of particular column of db
+         */
+//        $data = Student::get()->sum('randomId');
+//        echo '<pre>';
+//        print_r($data);exit;
+
         $data = Student::get();
         return view('students.viewAll', compact('data'));
     }
