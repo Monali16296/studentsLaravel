@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller {
 
-    public function studentForm() {
-
+    public function studentForm() {        
         $randomId = $this->duplicateRandomNumber();
         return view('students.registrationForm', compact('randomId'));
     }
@@ -25,6 +25,16 @@ class StudentsController extends Controller {
     }
 
     public function store(Request $request) {
+        
+        /*
+         *  For knowing current application environment
+         */
+//        dd(\App::environment());exit;
+
+        //getting ip address of remote user
+//        echo '<pre>';
+//        print_r($request->ip());exit;        
+        
         //For accessing request as array
 //        echo '<pre>';
 //        print_r($request->all());exit;
@@ -70,6 +80,13 @@ class StudentsController extends Controller {
             'img' => 'required'
         ]);
         $data = array('randomId' => $request->randomId, 'firstName' => $request->firstName, 'lastName' => $request->lastName, 'address' => $request->address, 'dob' =>$request->dob, 'student_image' =>$request->img);
+        /*
+         * For printing query
+         */
+//        DB::enableQueryLog();
+//        Student::create($data);
+//        dd(DB::getQueryLog());exit;
+        
         Student::create($data);
         $randomId = $this->duplicateRandomNumber();
         return view('students.registrationForm', compact('randomId'))->with('msg', 'You are successfully registered.Thank You!');
