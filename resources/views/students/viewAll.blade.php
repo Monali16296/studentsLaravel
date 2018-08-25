@@ -49,7 +49,10 @@
 @section('scripts')
 <script>
     $(function(){
-       $('#table').DataTable(); 
+       $('#table').DataTable({
+           //for changing show entries by default it's starting from 10 but we want from 5
+           "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+       }); 
     });
     </script>
 @stop

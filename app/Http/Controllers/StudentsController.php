@@ -116,6 +116,10 @@ class StudentsController extends Controller {
 //        print_r($data);exit;
 
         $data = Student::get();
+        /*
+         * laravel pagination loading only 5 data
+         */
+        //$data = Student::paginate(5);
         return view('students.viewAll', compact('data'));
     }
     
