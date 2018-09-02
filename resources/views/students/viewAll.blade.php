@@ -47,6 +47,7 @@
 @endsection
 
 @section('scripts')
+<script src="http://localhost/studentsLaravel/public/js/jquery.dataTables.min.js"></script>        
 <script>
     $(function(){
        $('#table').DataTable({
@@ -54,6 +55,6 @@
            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
        }); 
     });
-    </script>
+</script>
 @stop
 

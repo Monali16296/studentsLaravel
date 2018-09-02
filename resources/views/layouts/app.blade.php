@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="http://localhost/studentsLaravel/public/css/style.css">
         <script src="http://localhost/studentsLaravel/public/js/jquery.min.js"></script>
         <script src="http://localhost/studentsLaravel/public/js/bootstrap.min.js"></script>
-        <script src="http://localhost/studentsLaravel/public/js/jquery.dataTables.min.js"></script>        
+        
        
         <!-- Styles -->
         <style>
