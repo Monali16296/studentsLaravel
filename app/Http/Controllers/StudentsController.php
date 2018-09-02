@@ -87,6 +87,11 @@ class StudentsController extends Controller {
 //        Student::create($data);
 //        dd(DB::getQueryLog());exit;
         
+        /*
+         * insert record and get id of that row
+         */
+        //$a = Student::insertGetId($data);
+        //echo $a;exit;
         Student::create($data);
         $randomId = $this->duplicateRandomNumber();
         return view('students.registrationForm', compact('randomId'))->with('msg', 'You are successfully registered.Thank You!');
@@ -115,7 +120,51 @@ class StudentsController extends Controller {
 //        echo '<pre>';
 //        print_r($data);exit;
 
-        $data = Student::get();
+        /*
+         * where address column is null
+         */
+        //$data = Student::whereNull('address')->get();
+        
+        /*
+         * id is between
+         */
+        //$data = Student::whereBetween('id', [38, 42])->get();        
+        
+        /*
+         * id from following range or 
+         */
+        //$data = Student::whereIn('id', [38,39, 100])->get();        
+        
+        /*
+         * comparison between two columns
+         */
+        //$data = Student::whereColumn('randomId', '<', 'id')->get();        
+        
+        /*
+         * <> operatoe same as !=
+         */
+        //$data = Student::where('id', '<>', 38)->get();        
+        
+        /*
+         * id = 10 or (firstName = monali and lastname = hingu)
+         */
+//        $data = Student::where('id', 40)
+//                        ->orWhere(function($query){
+//                            $query->where('firstName', 'Monali')
+//                                  ->where('lastName', 'Hingu');
+//                        })
+//                        ->get();        
+        
+        /*
+         * skip 10 records and fetch only 1
+         */
+        //$data = Student::skip(10)->take(1)->get();
+        
+        /*
+         * starting from 9th record fetch 10 records
+         */
+        //$data = Student::offset(8)->limit(10)->get();        
+        $data = Student::get();        
         /*
          * laravel pagination loading only 5 data
          */
@@ -139,13 +188,22 @@ class StudentsController extends Controller {
         $data = array('randomId' => $request->randomId, 'firstName' => $request->firstName, 'lastName' => $request->lastName, 'address' => $request->address, 'dob' =>$request->dob);
         Student::where('randomId', $id)->update($data);
         
+        /*
+         * increment value of particular column by 1 .You can also specify second parameter for value
+         */
+        //Student::where('randomId', $id)->increment('randomId');
         $data = Student::get();
         return view('students.viewAll', compact('data'))->with('updatemsg', 'Updated successfully');
         
         
     }
     
-    public function delete($id) {        
+    public function delete($id) {
+        
+        /*
+         * if want to remove all records and resetting to autoincrement id to 0
+         */
+        //Student::truncate();exit;
         Student::where('randomId', $id)->delete();
         $data = Student::get();
         return view('students.viewAll', compact('data'))->with('deletemsg', 'Deleted successfully');

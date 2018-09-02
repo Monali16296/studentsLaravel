@@ -9,11 +9,11 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="http://localhost/studentsLaravel/public/css/bootstrap.min.css">
-        <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link  href="http://localhost/studentsLaravel/public/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="http://localhost/studentsLaravel/public/css/style.css">
         <script src="http://localhost/studentsLaravel/public/js/jquery.min.js"></script>
         <script src="http://localhost/studentsLaravel/public/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>        
+        <script src="http://localhost/studentsLaravel/public/js/jquery.dataTables.min.js"></script>        
        
         <!-- Styles -->
         <style>
