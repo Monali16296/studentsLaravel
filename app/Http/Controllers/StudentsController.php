@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 class StudentsController extends Controller {
 
     public function studentForm() {        
@@ -164,7 +164,11 @@ class StudentsController extends Controller {
          * starting from 9th record fetch 10 records
          */
         //$data = Student::offset(8)->limit(10)->get();        
-        $data = Student::get();        
+        
+        /*
+         * fetch data except deleted
+         */
+        $data = Student::whereNull('deleted_at')->get();        
         /*
          * laravel pagination loading only 5 data
          */
@@ -204,7 +208,8 @@ class StudentsController extends Controller {
          * if want to remove all records and resetting to autoincrement id to 0
          */
         //Student::truncate();exit;
-        Student::where('randomId', $id)->delete();
+        //Student::where('randomId', $id)->delete();
+        Student::where('randomId', $id)->update(['deleted_at' => Carbon::now()]);
         $data = Student::get();
         return view('students.viewAll', compact('data'))->with('deletemsg', 'Deleted successfully');
     }
