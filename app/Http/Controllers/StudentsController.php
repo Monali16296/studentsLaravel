@@ -168,7 +168,7 @@ class StudentsController extends Controller {
         /*
          * fetch data except deleted
          */
-        $data = Student::whereNull('deleted_at')->get();        
+        $data = Student::get();        
         /*
          * laravel pagination loading only 5 data
          */
