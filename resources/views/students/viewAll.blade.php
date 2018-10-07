@@ -41,6 +41,10 @@
                 <td>{{ $student->updated_at }}</td>
             </tr>
             @endforeach         
+           
+        <!-- if you want to use paginate then for other pages you can use below method-->
+        
+            {{-- {{ $data->links() }} --}}
         </tbody>
     </table>
 </div>
